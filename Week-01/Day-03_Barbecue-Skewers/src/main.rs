@@ -4,10 +4,10 @@ fn main() {
     }
 }
 
-fn skewer_types(bbq: &[&str; 5]) -> (u32, u32) {
-    bbq.iter().fold((0, 0), |acc, v| match v.find('x') {
-        Some(_) => (acc.0, acc.1 + 1),
-        None => (acc.0 + 1, acc.1),
+fn skewer_types(bbq: &[&str]) -> (u32, u32) {
+    bbq.iter().fold((0, 0), |(veg, meat), v| match v.find('x') {
+        Some(_) => (veg, meat + 1),
+        None => (veg + 1, meat),
     })
 }
 
